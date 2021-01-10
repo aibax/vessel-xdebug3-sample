@@ -1,0 +1,31 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+
+            // XDebug からの接続を待ち受けるポート番号を 9000 から 9003 に変更
+            "port": 9003,   // XDebug 3 からポートが 9003 に変更になった
+                            // 今まで通り 9000 で使用する場合は php.ini で 「 xdebug.client_port = 9000 」を設定
+
+
+            // コンテナとローカルのディレクトリの対応を設定                                                    
+            "pathMappings": {                       
+                "/var/www/html": "${workspaceRoot}" // Vessel の場合は /var/www/html にワークスペースのルートがマッピングされる
+            }
+        },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9000
+        }
+    ]
+}
