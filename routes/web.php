@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/debug', 'DebugTestController@index');
+
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
